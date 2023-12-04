@@ -2,5 +2,19 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 20vh;
+    height:10vh;
+    justify-content: center;
+    align-items: center;
 }
+
+@media (max-width: 768px) {
+    .footers {
+        display: flex;
+        bottom: 0;
+        width: 100%;
+        height:20vh;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+    }
+  }

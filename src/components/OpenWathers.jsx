@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Search from "../components/Search";
 import Card from "./Card";
 function OpenWathers() {
-  let urlWather =
+  let urlWeather =
     "https://api.openweathermap.org/data/2.5/weather?appid=e036d4f4d6d54dda063441f754104fe6&lang=es";
   let cityUrl = "&q=";
   let urlForecast =
@@ -11,7 +11,7 @@ function OpenWathers() {
     /** repeusta del tiempo actual*/
   }
 
-  const [Wather, setWather] = useState([]);
+  const [weather, setWeather] = useState([]);
 
   {
     /**repeusta del tiempo extendido */
@@ -30,7 +30,7 @@ function OpenWathers() {
     setLocation(loc);
 
     // Llamada a la API para obtener el clima actual
-    let currentWeatherURL = urlWather + cityUrl + loc;
+    let currentWeatherURL = urlWeather + cityUrl + loc;
     await fetch(currentWeatherURL)
       .then((response) => {
         if (!response.ok) throw { response };
@@ -38,7 +38,7 @@ function OpenWathers() {
       })
       .then((weatherData) => {
         console.log(weatherData);
-        setWather(weatherData);
+        setWeather(weatherData);
       })
       .catch((error) => {
         console.log(error);
@@ -74,7 +74,7 @@ function OpenWathers() {
         showData={show}
         loadingData={loading}
         // datos del tiempo y la prediccion de la siguiente horas
-        wather={Wather}
+        weather={weather}
         forecast={forecast}
       />
     </React.Fragment>

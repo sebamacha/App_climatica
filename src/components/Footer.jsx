@@ -4,8 +4,8 @@ import logo from "../assets/img/navbar.webp";
 
 function Footer() {
   return (
-    <footer className='bg-black text-white footers '>
-      <div className='w-full max-w-screen-xl  p-4 md:py-8'>
+    <footer className='bg-black text-white footers flex items-center'>
+      <div className='w-full max-w-screen-xl p-4 md:py-8'>
         <div className='sm:flex sm:items-center sm:justify-between'>
           <a
             href='https://flowbite.com/'

@@ -1,30 +1,26 @@
 import React from "react";
-import RandomImage from "./RandomImage";
+import Location from "./location";
 import OpenWathers from "./OpenWathers";
 
 function Estructure() {
   return (
     <div className=''>
-      {/* Barra de búsqueda al principio */}
+      {/* geolocalizacion */}
+      <Location />
       <div className='mb-3 text-gray-500 dark:text-gray-400'></div>
 
       {/* Contenedor para el contenido principal */}
       <div className='grid grid-cols-1 gap-6 sm:grid-cols-3'>
         {/* Contenido principal: OpenWathers u otras APIs */}
-        <div className='mb-3 text-gray-500 dark:text-gray-400'>
+        <div className='mb-3 text-gray-500 dark:text-gray-400 sm:col-span-2'>
           <OpenWathers />
         </div>
-        <div className='mb-3 text-gray-500 dark:text-gray-400'>
-          {/* Otra API */}
-        </div>
-        <div className='mb-3 text-gray-500 dark:text-gray-400'>
-          {/* Otra API */}
-        </div>
+        {/* Otros divs con la misma estructura */}
+        {/* ... */}
       </div>
 
       {/* Contenido adicional */}
       <div className='mb-3 text-gray-500 dark:text-gray-400'>
-        <RandomImage />
         Deliver great service experiences fast - without the complexity of
         traditional ITSM solutions.Accelerate critical development work,
         eliminate toil, and deploy changes with ease, with a complete audit

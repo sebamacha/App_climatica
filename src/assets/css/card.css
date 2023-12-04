@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
+.card-title{
+    position: absolute;
+    padding-top: 20px;
+    padding-left: 60px;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 50px;
+}
+
+.contenedor-principal{
+
+    margin-top: 0px;
+    padding: 2px;
+}
+
+.lado-izquierdo{
+     
+    margin-left: 20px;
+    
+}
+
+@media (max-width: 768px) {
+    .lado-izquierdo {
+      margin-left: 2px; /* Nuevo valor para dispositivos pequeños */
+    }
+  }
+.container-img{
+
+    margin-top: 5px;
+
+    
+}
+.card-name{
+    position: absolute;
+    padding: 20px;
+    color: white;
+    padding-left: 65px;
+    margin-top: 20px;
+    font-family: 'Lato', sans-serif;
+
+}
+.card-date{
+    position: absolute;
+    padding: 50px;
+    color: white;
+    padding-left: 65px;
+    margin-top: 20px;
+    font-family: 'Lato', sans-serif;
+}
+.card-temp{
+    
+    position: absolute;
+    padding-left: 50px;
+    margin-top: 120px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 60px;
+    
+}
+
+
+
+.card-desc{
+    position: absolute;
+    padding-left: 60px;
+    margin-top: 210px;
+    color: rgb(255, 255, 255);
+    font-family: 'Lato', sans-serif;
+    font-size: 35px;
+}
+
+.arriba{
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+    
+}
+
+.sin-datos{
+    font-size: 25px;
+    font-family: 'Lato', sans-serif;
+    color: rgb(255, 5, 5);
+    margin-left: 30px;
+
+}
+
+/* lado derecho */
+
+.temp-max{
+
+    
+    margin-top: 15px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+.temp-min{
+
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+.sens-term{
+    position: absolute;
+    margin-top: 55px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.humedad{
+    position: absolute;
+    margin-top: 75px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.vel-viento{
+
+    position: absolute;
+    margin-top: 96px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.extendido-container {
+    position: absolute;
+    max-width: 100%; /* O el ancho máximo deseado */
+    max-height: 0vh;
+    margin: 0 auto; /* Esto centrará el contenedor si tiene un ancho máximo */
+  }
+
+  .ext-1{
+    position: absolute;
+    margin-top: 280px;
+    margin-left: 50px;
+
+  }
+.datos-de{
+
+    color: blue;
+    font-family: 'Lato', sans-serif;
+    
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "../assets/css/randomimage.css";
 import img1 from "../assets/img/img1.webp";
 import img2 from "../assets/img/img2.webp";
 import img3 from "../assets/img/img3.webp";
@@ -30,7 +30,9 @@ const RandomImage = () => {
   }, []);
 
   // Use the <img> tag to display the image
-  return <img src={randomImage.url} alt={randomImage.alt} />;
+  return (
+    <img className={`img-random`} src={randomImage.url} alt={randomImage.alt} />
+  );
 };
 
 export default RandomImage;
