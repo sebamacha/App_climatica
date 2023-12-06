@@ -22,4 +22,11 @@
       transform: rotate(360deg);
     }
   }
+
+
+  .spinner-local.{
+    font-size: 35px;
+    color: crimson;
+    margin: 70px;
+  }
   

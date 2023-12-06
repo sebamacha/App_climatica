@@ -1,79 +1,67 @@
-import React, { useState } from "react";
-import Search from "../components/Search";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
+
 function OpenWathers() {
-  let urlWeather =
-    "https://api.openweathermap.org/data/2.5/weather?appid=e036d4f4d6d54dda063441f754104fe6&lang=es";
-  let cityUrl = "&q=";
-  let urlForecast =
-    "https://api.openweathermap.org/data/2.5/forecast?appid=e036d4f4d6d54dda063441f754104fe6&lang=es";
-  {
-    /** repeusta del tiempo actual*/
-  }
-
   const [weather, setWeather] = useState([]);
-
-  {
-    /**repeusta del tiempo extendido */
-  }
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
-  // variable de estado para que se pueda comunicar con el formulario
-  const [location, setLocation] = useState("");
-  {
-    /* funcion llamada a la api, y recoje la ciudad, funcion asincrona*/
-  }
 
-  const getLocation = async (loc) => {
-    setLoading(true);
-    setLocation(loc);
+  useEffect(() => {
+    const getLocation = async () => {
+      setLoading(true);
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const { latitude, longitude } = position.coords;
 
-    // Llamada a la API para obtener el clima actual
-    let currentWeatherURL = urlWeather + cityUrl + loc;
-    await fetch(currentWeatherURL)
-      .then((response) => {
-        if (!response.ok) throw { response };
-        return response.json(); // Corregir "Response.jason()" a "response.json()"
-      })
-      .then((weatherData) => {
-        console.log(weatherData);
-        setWeather(weatherData);
-      })
-      .catch((error) => {
-        console.log(error);
+            const urlWeather = `https://api.openweathermap.org/data/2.5/weather?appid=TU_API_KEY_AQUI&lang=es&lat=${latitude}&lon=${longitude}`;
+            const urlForecast = `https://api.openweathermap.org/data/2.5/forecast?appid=TU_API_KEY_AQUI&lang=es&lat=${latitude}&lon=${longitude}`;
+
+            try {
+              const [weatherResponse, forecastResponse] = await Promise.all([
+                fetch(urlWeather),
+                fetch(urlForecast),
+              ]);
+
+              if (!weatherResponse.ok || !forecastResponse.ok) {
+                throw new Error("Network response was not ok");
+              }
+
+              const weatherData = await weatherResponse.json();
+              const forecastData = await forecastResponse.json();
+
+              setWeather(weatherData);
+              setForecast(forecastData);
+              setLoading(false);
+              setShow(true);
+            } catch (error) {
+              console.error("Error fetching data:", error);
+              setLoading(false);
+              setShow(false);
+            }
+          },
+          (error) => {
+            console.error("Error getting geolocation:", error);
+            setLoading(false);
+            setShow(false);
+          }
+        );
+      } else {
+        console.error("Geolocation is not supported by this browser.");
         setLoading(false);
         setShow(false);
-      });
+      }
+    };
 
-    // Llamada a la API para obtener el pronóstico extendido
-    let extendedForecastURL = urlForecast + cityUrl + loc;
-    await fetch(extendedForecastURL) // Cambiar de urlWather a urlForecast
-      .then((response) => {
-        if (!response.ok) throw { response };
-        return response.json(); // Corregir "Response.jason()" a "response.json()"
-      })
-      .then((forecastData) => {
-        console.log(forecastData);
-        setForecast(forecastData);
-        setLoading(false);
-        setShow(true);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-        setShow(false);
-      });
-  };
+    getLocation();
+  }, []);
 
   return (
     <React.Fragment>
-      <Search newLocation={getLocation} />
       <Card
-        // componentes y props para visualizar la informacion
         showData={show}
         loadingData={loading}
-        // datos del tiempo y la prediccion de la siguiente horas
         weather={weather}
         forecast={forecast}
       />

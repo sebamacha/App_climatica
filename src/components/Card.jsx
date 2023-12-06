@@ -67,9 +67,11 @@ function Card({ loadingData, showData, weather, forecast }) {
           <div class=' flex items-center justify-center contenedor-principal '>
             <div class='w-full flex flex-col sm:flex-row contenedor-principal'>
               <div class='flex-1 lado-izquierdo'>
-                <h3 class='text-xl mb-2'>
-                  <p className='card-name'>{weather.name}</p>
-                  <p className='card-date'>{date}</p>
+                <h3 class='text-xl mb-2 text-white font-bold'>
+                  <p className='card-name text-white font-bold'>
+                    {weather.name}
+                  </p>
+                  <p className='card-date text-white font-bold'>{date}</p>
                 </h3>
                 <div className='container-img'>
                   <h1 className='card-temp'>
@@ -84,49 +86,51 @@ function Card({ loadingData, showData, weather, forecast }) {
                 </div>
               </div>
               <div class='flex-1 '>
-                <h3 class='text-xl mb-2  datos-de'>Datos de {weather.name}</h3>
+                <h3 class='text-4xl mb-2 text-white font-bold  datos-de'>
+                  Datos de {weather.name}
+                </h3>
                 <div>
-                  <h5 className='text-black font-bold'>
+                  <h5 className='text-white font-bold'>
                     Temperatura máxima:{" "}
                     {(weather.main.temp_max - 273.15).toFixed(1)}ºC
                   </h5>
-                  <h5 className='text-black font-bold'>
+                  <h5 className='text-white font-bold'>
                     Temperatura mínima:{" "}
                     {(weather.main.temp_min - 273.15).toFixed(1)}ºC
                   </h5>
-                  <h5 className='text-black font-bold'>
+                  <h5 className='text-white font-bold'>
                     sensación térmica:{" "}
                     {(weather.main.feels_like - 273.15).toFixed(1)}ºC
                   </h5>
-                  <h5 className='text-black font-bold'>
+                  <h5 className='text-white font-bold'>
                     Humedad: {weather.main.humidity}%
                   </h5>
-                  <h5 className='text-black font-bold'>
+                  <h5 className='text-white font-bold'>
                     Velocidad del viento: {weather.wind.speed}m/s
                   </h5>
                   <hr />
                   <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
-                    <div className='text-black font-bold'>
+                    <div className='text-white font-bold'>
                       <p>{forecastDate3}h</p>
-                      <p className='text-black font-bold'>
+                      <p className='text-white font-bold'>
                         <img src={iconUrl3} alt='icon' />
                         {forecast.list[1].weather[0].description}
                       </p>
-                      <p className='text-black font-bold'>
+                      <p className='text-white font-bold'>
                         {(forecast.list[1].main.temp - 273.15).toFixed(1)}ºC
                       </p>
                     </div>
-                    <div className='text-black font-bold'>
+                    <div className='text-white font-bold'>
                       <p>{forecastDate6}h</p>
                       <p className='description'>
                         <img src={iconUrl6} alt='icon' />
                         {forecast.list[2].weather[0].description}
                       </p>
-                      <p className='text-black font-bold'>
+                      <p className='text-white font-bold'>
                         {(forecast.list[2].main.temp - 273.15).toFixed(1)}ºC
                       </p>
                     </div>
-                    <div className='text-black font-bold'>
+                    <div className='text-white font-bold'>
                       <p>{forecastDate9}h</p>
                       <p className='description'>
                         <img src={iconUrl9} alt='icon' />
